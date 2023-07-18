@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Wrapper from "./Context/UseContext";
+import SidebarMenu from "./layouts/SidebarMenu";
+import HeaderBar from "./layouts/Header";
+// import GoToTop from "./Component/GoToTop";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home";
+import Currecies from "./Pages/Currecies";
+import refrencecurrencies from "./Pages/RefrenceCurrencies";
+import News from "./Pages/News";
+
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      <Router>
+        <div className="App">
+          <SidebarMenu />
+          <div className="content">
+            <HeaderBar />
+            <Routes>
+              <Route path="/" Component={Home} />
+              <Route path="/Currencies" Component={Currecies} />
+              <Route
+                path="/refrencecurrencies"
+                Component={refrencecurrencies}
+              />
+              <Route path="/news" Component={News} />
+            </Routes>
+            {/* <GoToTop /> */}
+          </div>
+        </div>
+      </Router>
+    </Wrapper>
   );
 }
 

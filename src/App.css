@@ -1,38 +1,268 @@
 .App {
+  display: flex;
+}
+
+/* --------------Sidebar Menu------------ */
+.sidemenu {
+  width: 280px;
+  min-width: 280px;
+  max-width: 280px;
+  height: auto;
+  min-height: 100vh;
+  background-color: rgb(0, 21, 41);
+  /* position: fixed; */
+  font-size: 14px;
+  transition: 0.5s ease-in-out;
+  box-sizing: border-box;
+}
+
+.sm-header {
+  display: flex;
+  padding: 20px 30px;
+  justify-content: space-between;
+}
+
+.sm-header h2 {
+  color: white;
+  font-weight: 200;
+  font-size: 30px;
+}
+
+.sidebar-btn {
+  width: 280px;
+  position: fixed;
+  bottom: 0;
+  border: none;
+  background-color: rgb(0, 33, 64);
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 200;
+  z-index: 1;
+  transition: 0.5s ease-in-out;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  display: block;
+  object-fit: cover;
+}
+
+/* ------------Content-------------------- */
+
+.content {
+  min-height: 100vh;
+  height: auto;
+  width: 100%;
+  background-color: rgb(245, 245, 245);
+}
+
+/* ----------Header--------------- */
+
+.header-section {
+  width: 100%;
+  height: 80px;
+  padding: 20px;
+  background-color:#fff;
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.header-section input {
+  min-width: 200px;
+  width: 40%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  opacity: 0.5;
+}
+
+.header-section input:focus {
+  outline: none;
+}
+
+.header-section input:focus {
+  box-shadow: 0 0 5px #11289c;
+}
+
+/* ----------------Card design-------------------- */
+.main-container {
+  margin-top: 1rem;
+  padding: 0;
+}
+
+.card-container {
+  background: #ffffff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.card-head {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 56px;
+  margin-bottom: -1px;
+  padding: 0 24px;
+  color: rgba(0, 0, 0, 0.88);
+  font-weight: 600;
+  font-size: 16px;
+  background: transparent;
+  border-bottom: 1px solid #f0f0f0;
+  border-radius: 8px 8px 0 0;
+}
+
+.card-head-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.card-head-title {
+  display: inline-block;
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+.card-avatar {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+}
+
+.card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-body-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+.card-body-fontsize {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+}
+
+.card-links-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #ffffff;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  border-radius: 0 0 8px 8px;
+  flex: auto;
+}
+
+.card-links-link {
+  width: 50%;
+  border-inline-end: 1px solid #f0f0f0;
+  margin: 12px 0;
+  color: rgba(0, 0, 0, 0.45);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card-links-link a {
+  text-decoration: inherit;
+  color: rgba(0, 0, 0, 0.45);
+  text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.card-links-link a:hover {
+  color: #11289c;
+}
+
+/* -----------sidebarmenu(toggle button style)------------ */
+.sm-state-toggle {
+  width: 90px;
+  min-width: 90px;
+  max-width: 90px;
+  transition: 0.5s ease-in-out;
+}
+
+.sb-state-text,
+.sb-state-h2 {
+  display: none;
+}
+
+.font-state-icon {
+  font-size: 18px;
+  padding-left: 7px;
+}
+
+.sidebar-state-btn {
+  width: 90px;
+  transition: 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 850px) {
+  .sm-toggle {
+    width: 90px;
+    min-width: 90px;
+    max-width: 90px;
+    transition: 0.5s ease-in-out;
+  }
+
+  .sb-text,
+  .sb-h2 {
+    display: none;
+  }
+
+  .font-icon {
+    font-size: 18px;
+    padding-left: 7px;
+  }
+
+  .sidebar-btn {
+    width: 90px;
+    /* position: relative; */
+    transition: 0.5s ease-in-out;
+  }
+
+  .card {
+    width: 22rem;
+    margin-top: 5px;
+  }
+
+  .header-section input {
+    width: 100%;
+  }
+
+  .dropdown{
+    margin-right: 65px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media screen and (min-width: 640px) {
+  .grid-item {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+@media screen and (min-width: 850px) {
+  .grid-item {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
