@@ -65,7 +65,7 @@ const DropDown = () => {
   return (
     <div>
       <Dropdown className="d-inline ms-3 dropdown">
-        <Dropdown.Toggle id="dropdown-autoclose-outside">
+        <Dropdown.Toggle  id="dropdown-autoclose-outside">
           Filter
         </Dropdown.Toggle>
 

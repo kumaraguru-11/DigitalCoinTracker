@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import NewsCard from '../Component/NewsCard';
 
 function News() {
   return (
-    <div>News</div>
+    <div>
+       <NewsCard/>
+    </div>
   )
 }
 

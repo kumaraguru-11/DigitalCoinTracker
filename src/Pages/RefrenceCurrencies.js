@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import FaithTabel from "../Component/FiatTabel";
+import Refrencecurrencytabel from "../Component/Refrencecurrencytabel";
 
 function RefrenceCurrencies() {
   return (
-    <div>RefrenceCurrencies</div>
-  )
+    <>
+      <Refrencecurrencytabel />
+      <FaithTabel />
+    </>
+  );
 }
 
 export default RefrenceCurrencies;

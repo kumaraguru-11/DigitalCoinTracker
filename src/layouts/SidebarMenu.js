@@ -3,10 +3,24 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Nav from "react-bootstrap/Nav";
 import crypto from "../assests/crypto.png";
-import { Link } from "react-router-dom";
+import { Link ,useLocation} from "react-router-dom";
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 
 function SidebarMenu() {
   const [shrink, setShrink] = React.useState(false);
+  const location=useLocation();
+  const handleDefault=()=>{
+     if(location.pathname==="/currencies"){
+      return 'link-2'
+     }else if(location.pathname==='/'){
+      return "link-1"
+     }else if(location.pathname==="/refrencecurrencies"){
+      return "link-3"
+     }else{
+      return "link-4"
+     }
+  }
   return (
     <div className={`sidemenu sm-toggle ${shrink ? "sm-state-toggle" : ""}`}>
       <div className="sm-header">
@@ -17,11 +31,19 @@ function SidebarMenu() {
       </div>
       <Nav
         variant="pills"
-        defaultActiveKey="/home"
+        defaultActiveKey={handleDefault}
         className="d-flex flex-column mx-1"
       >
         <Nav.Item>
-          <Nav.Link className="mt-2" eventKey="link-1" as={Link} to={"/"}>
+          <Nav.Link
+            className="mt-2"
+            eventKey="link-1"
+            as={Link}
+            to={"/"}
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Home"
+            data-tooltip-place="right"
+          >
             <span
               className={`bi bi-house text-light ms-2 font-icon ${
                 shrink ? "font-state-icon" : ""
@@ -42,6 +64,9 @@ function SidebarMenu() {
             className="mt-2"
             as={Link}
             to={"/currencies"}
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Currencies"
+            data-tooltip-place="right"
           >
             <span
               className={`bi bi-graph-up text-light ms-2 font-icon ${
@@ -63,13 +88,15 @@ function SidebarMenu() {
             className="mt-2"
             as={Link}
             to={"/refrencecurrencies"}
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Refrence Currencies"
+            data-tooltip-place="right"
           >
             <span
               className={`bi bi-pencil-square text-light ms-2 font-icon ${
                 shrink ? "font-state-icon" : ""
               } `}
             ></span>
-            {/* ${open ? "opened" : "closed"} */}
             <span
               className={`text-light fs-6 ms-2 sb-text ${
                 shrink ? "sb-state-text" : ""
@@ -78,7 +105,15 @@ function SidebarMenu() {
               Refrence Currencies
             </span>
           </Nav.Link>
-          <Nav.Link eventKey="link-4" className="mt-2" as={Link} to={"/news"}>
+          <Nav.Link
+            eventKey="link-4"
+            className="mt-2"
+            as={Link}
+            to={"/news"}
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="News"
+            data-tooltip-place="right"
+          >
             <span
               className={`bi bi-lightbulb text-light ms-2 font-icon ${
                 shrink ? "font-state-icon" : ""
@@ -106,6 +141,7 @@ function SidebarMenu() {
           <i className="bi bi-caret-left"></i>
         )}
       </button>
+      <Tooltip id="my-tooltip" />
     </div>
   );
 }

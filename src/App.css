@@ -1,8 +1,80 @@
 .App {
   display: flex;
 }
+/* --------------HomePage------------------ */
+.home-h1{
+  font-weight: 400;
+  margin: 2rem;
+}
 
-/* --------------Sidebar Menu------------ */
+.home-stats1{
+  margin: 0.75rem;
+}
+
+.home-icon{
+  display: inline-block;
+  margin-inline-end: 4px;
+}
+
+.home-data-container{
+  margin-bottom: 5rem;
+  margin-left: 2rem;
+}
+.home-stats-data{
+  font-size: 24px;
+}
+.home-stats-head{
+  opacity: .5;
+}
+/* -----------header searcbar------------ */
+.dd-search {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  width: 40%;
+  position: relative;
+}
+
+.dd-input {
+  border: none;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 7px;
+  position: relative;
+}
+
+.dd-input:focus {
+  outline: none;
+  box-shadow: 0 0 5px #11289c;
+}
+
+.dd-list {
+  background-color: #fafafa;
+  z-index: 999;
+  border-radius: 8px;
+  max-height: 250px;
+  padding: 0.25rem;
+  width: 100%;
+  top: 2.5rem;
+  position: absolute;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  cursor: pointer;
+}
+
+.dd-list li {
+  list-style: none;
+  padding: 0.25rem 0.75rem;
+  border-radius: 3px;
+}
+
+.dd-list li:nth-child(1),
+.dd-list li:hover {
+  background-color: #f0f0f0;
+}
+
+/* --------------        Sidebar Menu         ------------ */
 .sidemenu {
   width: 280px;
   min-width: 280px;
@@ -10,7 +82,6 @@
   height: auto;
   min-height: 100vh;
   background-color: rgb(0, 21, 41);
-  /* position: fixed; */
   font-size: 14px;
   transition: 0.5s ease-in-out;
   box-sizing: border-box;
@@ -49,44 +120,27 @@
   object-fit: cover;
 }
 
-/* ------------Content-------------------- */
+/* ------------       Content          -------------------- */
 
 .content {
   min-height: 100vh;
   height: auto;
   width: 100%;
+  overflow: hidden;
   background-color: rgb(245, 245, 245);
 }
 
-/* ----------Header--------------- */
+/* ----------          Header            --------------- */
 
 .header-section {
   width: 100%;
   height: 80px;
   padding: 20px;
-  background-color:#fff;
+  background-color: #fff;
   display: flex;
-  /* justify-content: space-between; */
 }
 
-.header-section input {
-  min-width: 200px;
-  width: 40%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  opacity: 0.5;
-}
-
-.header-section input:focus {
-  outline: none;
-}
-
-.header-section input:focus {
-  box-shadow: 0 0 5px #11289c;
-}
-
-/* ----------------Card design-------------------- */
+/* ----------------           Card design           -------------------- */
 .main-container {
   margin-top: 1rem;
   padding: 0;
@@ -96,6 +150,11 @@
   background: #ffffff;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+}
+
+.card-navlink {
+  text-decoration: none;
+  color: inherit;
 }
 
 .card-head {
@@ -169,7 +228,6 @@
   background: #ffffff;
   border-top: 1px solid #f0f0f0;
   display: flex;
-  border-radius: 0 0 8px 8px;
   flex: auto;
 }
 
@@ -191,7 +249,7 @@
   color: #11289c;
 }
 
-/* -----------sidebarmenu(toggle button style)------------ */
+/* -----------       sidebarmenu(toggle button style)        ------------ */
 .sm-state-toggle {
   width: 90px;
   min-width: 90px;
@@ -214,6 +272,398 @@
   transition: 0.5s ease-in-out;
 }
 
+/* -------------      Loder Animation          ------------ */
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fff;
+  border-bottom-color: #ff3d00;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 60%;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* --------------           Crypto Data             ------------------ */
+
+.c-data-Container {
+  margin: 1rem;
+  min-height: 0;
+}
+
+.c-data-header {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.header-icon-span {
+  height: 34px;
+}
+
+.header-icon-img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.header-h1 {
+  font-size: 3rem;
+  margin: 0 1rem;
+  font-weight: 400;
+}
+
+.c-data-para {
+  margin-top: 2.5rem;
+  opacity: 0.5;
+}
+
+.c-data-grid {
+  margin: 0.75rem;
+}
+
+.c-data-grid-h3 {
+  font-size: 1.5rem;
+  font-weight: inherit;
+}
+
+.c-data-grid-para {
+  margin-top: 0.75rem;
+  margin-bottom: 1.25rem;
+  opacity: 0.5;
+}
+
+.c-data-grid-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.c-data-grid-list:hover {
+  background-color: rgb(215, 215, 215);
+}
+
+.grid-listitem {
+  display: flex;
+  margin: 0.25rem;
+}
+
+.grid-listitem-icon {
+  font-size: 1rem;
+  opacity: 0.5;
+}
+
+.grid-listitem-name {
+  opacity: 0.5;
+  font-size: 1rem;
+  margin-left: 0.75rem;
+}
+
+.grid-listitem-price {
+  font-weight: 500;
+  margin-right: 0.25rem;
+}
+
+.grid-listitem-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.map-grid-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.map-grid-innerlist {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  margin-left: 0.25rem;
+  padding: 0.25rem;
+}
+
+.map-grid-innerlist:hover {
+  background-color: rgb(215, 215, 215);
+}
+
+.map-grid-listitem {
+  opacity: 0.5;
+  font-size: 17px;
+}
+
+.map-grid-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.map-grid-link:hover {
+  color: #11289c;
+  border-bottom: 1px solid blue;
+}
+
+/* -------------      chart         ------------- */
+.chartheader {
+  margin-bottom: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+.chartheader-h1 {
+  font-size: 1.875rem;
+  font-weight: 400;
+}
+
+.chartheader-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+/* --------------    Pagination      ------------- */
+.pagination {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+}
+
+.pagination .page-num {
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+/* ------------        crypto market page     ------------ */
+.market-container {
+  margin: 1rem;
+}
+
+.market-header {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 1.5rem 0rem;
+}
+
+.market-title {
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.market-title-head {
+  opacity: 0.5;
+}
+
+.market-title-icon {
+  display: inline-block;
+  font-size: 1.5rem;
+}
+
+.market-title-data {
+  display: inline-block;
+  font-size: 1.5rem;
+}
+
+.market-table-wrapper {
+  max-width: 100%;
+  overflow-x: scroll;
+  box-sizing: border-box;
+}
+
+.market-table {
+  min-width: 100%;
+  table-layout: auto;
+  border-spacing: 0;
+  overflow-x: hidden;
+}
+.market-table-thead {
+  border-spacing: 0;
+  overflow: hidden;
+}
+
+.tabel-thead-head {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.88);
+  font-weight: 600;
+  background: #fafafa;
+  border-bottom: 1px solid #f0f0f0;
+  position: relative;
+  padding: 16px 16px;
+  overflow-wrap: break-word;
+  border-collapse: separate;
+  border-spacing: 0;
+  box-sizing: border-box;
+}
+
+.radius-start {
+  border-start-start-radius: 8px;
+}
+.radius-end {
+  border-start-end-radius: 8px;
+}
+
+.tabel-thead-head::before {
+  position: absolute;
+  top: 50%;
+  inset-inline-end: 0;
+  width: 2px;
+  height: 1.6em;
+  background-color: #f0f0f1;
+  transform: translateY(-50%);
+  transition: background-color 0.2s;
+  content: "";
+}
+
+.tbody-tr-td {
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 16px 16px;
+  overflow-wrap: break-word;
+  border-spacing: 0;
+  color: rgba(0, 0, 0, 0.88);
+}
+
+.tbody-avatar {
+  border-radius: 0;
+  background: transparent;
+  width: 32px;
+  height: 32px;
+  border: 1px solid transparent;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 14px;
+  line-height: 30px;
+  border-spacing: 0;
+}
+
+.tbody-avatar-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: "100%";
+  text-align: center;
+  overflow-wrap: break-word;
+  border-spacing: 0;
+}
+
+.tbody-tr {
+  background-color: #fff;
+}
+
+.tbody-tr:hover {
+  background-color: rgb(243, 242, 242);
+}
+
+.td-name {
+  text-align: start;
+}
+
+.th-textalign-start {
+  text-align: start;
+}
+
+
+.delete-icon{
+  position: absolute;
+  right: 0;
+  margin-right: 30px;
+}
+
+.delete-icon:hover{
+  color: red;
+}
+
+.click:hover{
+  background-color: rgb(238, 238, 238);
+  cursor: pointer;
+}
+
+.td-name-icons{
+position: absolute;
+right: 0;
+margin-right: 10px;
+font-size: 20px;
+}
+/* ------------ newscard--------------- */
+.news-container {
+  margin: 1rem;
+}
+
+.news-card {
+  margin: 0.75rem;
+}
+
+.news-card a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.news {
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+.news-content {
+  padding: 24px;
+}
+.news-header {
+  display: flex;
+  overflow: hidden;
+}
+.news-header h2 {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.news-published-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  opacity: 0.5;
+  margin: 1rem 0rem;
+}
+.news-published-person-detail,
+.news-published-time-detail {
+  display: flex;
+  align-items: center;
+  font-size: medium;
+}
+.news-card-icon {
+  display: inline-block;
+  margin-right: 0.25rem;
+}
+
+
 @media screen and (max-width: 850px) {
   .sm-toggle {
     width: 90px;
@@ -234,7 +684,6 @@
 
   .sidebar-btn {
     width: 90px;
-    /* position: relative; */
     transition: 0.5s ease-in-out;
   }
 
@@ -247,13 +696,18 @@
     width: 100%;
   }
 
-  .dropdown{
+  .dropdown {
     margin-right: 65px;
   }
 }
 
 @media screen and (min-width: 640px) {
   .grid-item {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow-x: scroll;
+  }
+  .news-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -264,5 +718,27 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
+/* @media screen and (max-width: 640px) {
+  .header-section {
+    height: 150px;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+} */
+
+@media screen and (min-width:768px){
+  .home-data-container{
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
