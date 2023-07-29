@@ -147,7 +147,7 @@ const Refrencecurrencytabel = () => {
               </thead>
               <tbody>
                 {currentItems &&
-                  currentItems.map((el, id) => (
+                  currentItems.map((el) => (
                     <tr className="tbody-tr" key={el.uuid}>
                       <td className="tbody-tr-td text-start">
                         <div>

@@ -508,7 +508,6 @@
   font-weight: 600;
   background: #fafafa;
   border-bottom: 1px solid #f0f0f0;
-  position: relative;
   padding: 16px 16px;
   overflow-wrap: break-word;
   border-collapse: separate;
@@ -605,6 +604,10 @@
 .click:hover{
   background-color: rgb(238, 238, 238);
   cursor: pointer;
+}
+
+.click{
+  position: relative;
 }
 
 .td-name-icons{
