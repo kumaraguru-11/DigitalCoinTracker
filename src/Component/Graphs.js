@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { UseContext } from "../Context/UseContext";
+import React from "react";
+import { useSelector } from "react-redux";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -23,11 +23,11 @@ ChartJS.register(
 );
 
 const Graphs = () => {
-  const { uuid } = useContext(UseContext);
+  const uuid = useSelector((state) => state.uuid);
   const [exchange, setExchange] = React.useState();
   React.useEffect(() => {
     fetch(
-      `https://coinranking1.p.rapidapi.com/coin/${uuid}/history?timePeriod=24h`,
+      `https://coinranking1.p.rapidapi.com/coin/${uuid.uuid}/history?timePeriod=24h`,
       {
         headers: {
           "X-BingApis-SDK": "true",
@@ -39,7 +39,6 @@ const Graphs = () => {
     )
       .then((resp) => resp.json())
       .then((res) => {
-        // console.log(res, "<---graphdata");
         setExchange(res.data);
       })
       .catch((error) => {

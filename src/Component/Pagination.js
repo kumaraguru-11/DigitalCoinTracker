@@ -1,40 +1,47 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
-import { UseContext } from "../Context/UseContext";
+import { useSelector, useDispatch } from "react-redux";
 import Card from "./Card";
 import { useLocation } from "react-router-dom";
+import { fetchCoins } from "../features/CoinsSlice";
 
 const Pagination = () => {
-  const { data } = useContext(UseContext);
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.coins.coins.data);
+  React.useEffect(() => {
+    dispatch(fetchCoins());
+  }, [dispatch]);
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 10;
   const endOffset = itemOffset + itemsPerPage;
-  const currentItems = data && data.slice(itemOffset, endOffset);
-  const pageCount = data ? Math.ceil(data.length / itemsPerPage) : "";
+  const currentItems = data && data.coins.slice(itemOffset, endOffset);
+  const pageCount = data ? Math.ceil(data.coins.length / itemsPerPage) : "";
   const location = useLocation();
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % data.length;
+    const newOffset = (event.selected * itemsPerPage) % data.coins.length;
     setItemOffset(newOffset);
   };
 
   return (
     <>
       <Card currentItems={currentItems} />
-      {location.pathname!=='/'&&<ReactPaginate
-        breakLabel="..."
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
-        pageCount={pageCount}
-        previousLabel="< previous"
-        renderOnZeroPageCount={null}
-        containerClassName="pagination"
-        pageClassName="page-num"
-        previousLinkClassName="page-num"
-        nextLinkClassName="page-num"
-        activeLinkClassName="active"
-      />}
+      {location.pathname !== "/" && (
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel="next >"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={5}
+          pageCount={Math.ceil(pageCount)}
+          previousLabel="< previous"
+          renderOnZeroPageCount={null}
+          containerClassName="pagination"
+          pageClassName="page-num"
+          previousLinkClassName="page-num"
+          nextLinkClassName="page-num"
+          activeLinkClassName="active"
+        />
+      )}
     </>
   );
 };

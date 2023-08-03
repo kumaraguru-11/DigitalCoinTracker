@@ -2,29 +2,29 @@
   display: flex;
 }
 /* --------------HomePage------------------ */
-.home-h1{
+.home-h1 {
   font-weight: 400;
   margin: 2rem;
 }
 
-.home-stats1{
+.home-stats1 {
   margin: 0.75rem;
 }
 
-.home-icon{
+.home-icon {
   display: inline-block;
   margin-inline-end: 4px;
 }
 
-.home-data-container{
+.home-data-container {
   margin-bottom: 5rem;
   margin-left: 2rem;
 }
-.home-stats-data{
+.home-stats-data {
   font-size: 24px;
 }
-.home-stats-head{
-  opacity: .5;
+.home-stats-head {
+  opacity: 0.5;
 }
 /* -----------header searcbar------------ */
 .dd-search {
@@ -69,11 +69,9 @@
   border-radius: 3px;
 }
 
-.dd-list li:nth-child(1),
-.dd-list li:hover {
+.dd-list-li:hover {
   background-color: #f0f0f0;
 }
-
 /* --------------        Sidebar Menu         ------------ */
 .sidemenu {
   width: 280px;
@@ -590,31 +588,30 @@
   text-align: start;
 }
 
-
-.delete-icon{
+.delete-icon {
   position: absolute;
   right: 0;
   margin-right: 30px;
 }
 
-.delete-icon:hover{
+.delete-icon:hover {
   color: red;
 }
 
-.click:hover{
+.click:hover {
   background-color: rgb(238, 238, 238);
   cursor: pointer;
 }
 
-.click{
+.click {
   position: relative;
 }
 
-.td-name-icons{
-position: absolute;
-right: 0;
-margin-right: 10px;
-font-size: 20px;
+.td-name-icons {
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+  font-size: 20px;
 }
 /* ------------ newscard--------------- */
 .news-container {
@@ -665,7 +662,6 @@ font-size: 20px;
   display: inline-block;
   margin-right: 0.25rem;
 }
-
 
 @media screen and (max-width: 850px) {
   .sm-toggle {
@@ -735,10 +731,10 @@ font-size: 20px;
   }
 } */
 
-@media screen and (min-width:768px){
-  .home-data-container{
+@media screen and (min-width: 768px) {
+  .home-data-container {
     display: grid;
-    grid-template-columns: repeat(3,minmax(0,1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 

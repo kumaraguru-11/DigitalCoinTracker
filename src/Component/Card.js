@@ -1,15 +1,12 @@
-import React, { useContext } from "react";
-import { UseContext } from "../Context/UseContext";
+import React from "react";
 import Container from "react-bootstrap/Container";
 import { NavLink, Link } from "react-router-dom";
 import Loader from "./Loader";
+import { useDispatch } from "react-redux";
+import { picked } from "../features/UuidSlice";
 
 const Card = ({ currentItems }) => {
-  const { setUuid } = useContext(UseContext);
-  const handleClick = (val) => {
-    setUuid(val.uuid);
-  };
-  // console.log(currentItems);
+  const dispatch = useDispatch();
   const getRoundedFigure = (Value) => {
     // Nine Zeroes for Billions
     return Math.abs(Number(Value)) >= 1.0e9
@@ -31,7 +28,7 @@ const Card = ({ currentItems }) => {
               <NavLink
                 to={`/crypto/${el.uuid}`}
                 className="card-navlink"
-                onClick={() => handleClick(el)}
+                onClick={() => dispatch(picked(el.uuid))}
               >
                 <div className="card-head">
                   <div className="card-head-wrapper">
@@ -64,7 +61,10 @@ const Card = ({ currentItems }) => {
                   </p>
                 </div>
               </NavLink>
-              <ul className="card-links-list" onClick={() => handleClick(el)}>
+              <ul
+                className="card-links-list"
+                onClick={() => dispatch(picked(el.uuid))}
+              >
                 <li className="card-links-link">
                   <span>
                     <Link to={`/market/${el.uuid}`}>View Market</Link>

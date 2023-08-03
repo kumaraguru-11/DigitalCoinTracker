@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import GoToTop from "./GoToTop";
-import { UseContext } from "../Context/UseContext";
 import Loader from "./Loader";
 import CryptoContent from "./cryptoContent";
+import { useSelector } from "react-redux";
 
 const Crypto = () => {
-  const [show, setShow] = React.useState(false);
-  const { uuid, coindetail, setCoindetail } = useContext(UseContext);
-
+  const [show, setShow] = useState(false);
+  const [coindetail, setCoindetail] = useState();
+  const uuid = useSelector((state) => state.uuid);
   // --------GoToTop Button function----------
   window.addEventListener("scroll", () => {
     if (window.scrollY > 415) {
@@ -18,7 +18,7 @@ const Crypto = () => {
   });
 
   React.useEffect(() => {
-    fetch(`https://coinranking1.p.rapidapi.com/coin/${uuid}`, {
+    fetch(`https://coinranking1.p.rapidapi.com/coin/${ uuid['uuid'] }`, {
       headers: {
         "X-BingApis-SDK": "true",
         "X-RapidAPI-Key": "b0e5fdedf1msh31670962ccd7408p140db3jsne4f802e641e3",
@@ -35,7 +35,7 @@ const Crypto = () => {
     <>
       {coindetail ? (
         <main className="c-data-Container">
-          <CryptoContent />
+          <CryptoContent coindetail={coindetail} />
           {show && <GoToTop />}
         </main>
       ) : (

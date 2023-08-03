@@ -36,7 +36,6 @@ const Refrencecurrencytabel = () => {
     )
       .then((resp) => resp.json())
       .then((res) => {
-        // console.log(res);
         setRefrenceCurrency(res.data.currencies);
       });
   }, []);
@@ -50,10 +49,10 @@ const Refrencecurrencytabel = () => {
     });
     setRefrenceCurrency(updatedItems);
 
-    if(updatedItems.some((el)=>(el.checked===true))){
-        setShow(true)
-    }else{
-        setShow(false)
+    if (updatedItems.some((el) => el.checked === true)) {
+      setShow(true);
+    } else {
+      setShow(false);
     }
   };
 

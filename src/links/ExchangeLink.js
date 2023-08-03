@@ -1,11 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import Loader from "../Component/Loader";
 import ReactPaginate from "react-paginate";
-import { UseContext } from "../Context/UseContext";
+import { useSelector } from "react-redux";
 
 const ExchangeLink = () => {
   const [exchange, setExchange] = React.useState([]);
-  const { uuid,data } = useContext(UseContext);
+  const data = useSelector((state) => state.coins.coins.data);
+  const uuid = useSelector((state) => state.uuid);
   const [itemOffset, setItemOffset] = React.useState(0);
   const itemsPerPage = 10;
   const endOffset = itemOffset + itemsPerPage;
@@ -17,7 +18,7 @@ const ExchangeLink = () => {
     setItemOffset(newOffset);
   };
   React.useEffect(() => {
-    fetch(`https://coinranking1.p.rapidapi.com/coin/${uuid}/exchanges`, {
+    fetch(`https://coinranking1.p.rapidapi.com/coin/${uuid.uuid}/exchanges`, {
       headers: {
         "X-BingApis-SDK": "true",
         "X-RapidAPI-Key": "b0e5fdedf1msh31670962ccd7408p140db3jsne4f802e641e3",
@@ -32,7 +33,7 @@ const ExchangeLink = () => {
         console.error(error);
       });
   }, [uuid]);
-  console.log(exchange, "<---");
+  // console.log(exchange, "<---");
   const getRoundedFigure = (Value) => {
     // Nine Zeroes for Billions
     return Math.abs(Number(Value)) >= 1.0e9
@@ -59,9 +60,9 @@ const ExchangeLink = () => {
                 </span>
                 <span className="market-title-data">
                   {data &&
-                    data.map((el) => (
+                    data.coins.map((el) => (
                       <React.Fragment key={el.uuid}>
-                        {el.uuid === uuid
+                        {el.uuid === uuid.uuid
                           ? ` ${getRoundedFigure(el["24hVolume"])}`
                           : ""}
                       </React.Fragment>

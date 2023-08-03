@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
-import { UseContext } from "../Context/UseContext";
+import React from "react";
 import ReactPaginate from "react-paginate";
 import Loader from "../Component/Loader";
+import { useSelector } from "react-redux";
 
 const CryptoMarkets = () => {
   const [market, setMarket] = React.useState([]);
@@ -16,9 +16,10 @@ const CryptoMarkets = () => {
     setItemOffset(newOffset);
   };
 
-  const { uuid, data } = useContext(UseContext);
+  const data = useSelector((state) => state.coins.coins.data);
+  const uuid = useSelector((state) => state.uuid);
   React.useEffect(() => {
-    fetch(`https://coinranking1.p.rapidapi.com/coin/${uuid}/markets`, {
+    fetch(`https://coinranking1.p.rapidapi.com/coin/${uuid.uuid}/markets`, {
       headers: {
         "X-BingApis-SDK": "true",
         "X-RapidAPI-Key": "b0e5fdedf1msh31670962ccd7408p140db3jsne4f802e641e3",
@@ -59,9 +60,9 @@ const CryptoMarkets = () => {
                 </span>
                 <span className="market-title-data">
                   {data &&
-                    data.map((el) => (
+                    data.coins.map((el) => (
                       <React.Fragment key={el.uuid}>
-                        {el.uuid === uuid
+                        {el.uuid === uuid.uuid
                           ? ` ${getRoundedFigure(el["24hVolume"])}`
                           : ""}
                       </React.Fragment>

@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
-import { UseContext } from "../Context/UseContext";
+import React from "react";
 import Graphs from "./Graphs";
 import NewsCard from "./NewsCard";
 
-const CryptoContent = () => {
+const CryptoContent = ({coindetail}) => {
   let key="24hVolume"
-  const { coindetail } = useContext(UseContext);
     const getRoundedFigure = (Value) => {
       // Nine Zeroes for Billions
       return Math.abs(Number(Value)) >= 1.0e9

@@ -1,6 +1,5 @@
 import React from "react";
 import GoToTop from "../Component/GoToTop";
-// import Card from "../Component/Card";
 import Pagination from "../Component/Pagination";
 
 function Currecies() {
