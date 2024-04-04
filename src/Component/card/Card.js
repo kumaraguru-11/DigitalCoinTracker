@@ -1,35 +1,17 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import { NavLink, Link } from "react-router-dom";
-import Loader from "./Loader";
-import { useDispatch } from "react-redux";
-import { picked } from "../features/UuidSlice";
+import Loader from "../feature/Loader";
+import millify from "millify";
 
 const Card = ({ currentItems }) => {
-  const dispatch = useDispatch();
-  const getRoundedFigure = (Value) => {
-    // Nine Zeroes for Billions
-    return Math.abs(Number(Value)) >= 1.0e9
-      ? (Math.abs(Number(Value)) / 1.0e9).toFixed(1) + "B"
-      : // Six Zeroes for Millions
-      Math.abs(Number(Value)) >= 1.0e6
-      ? (Math.abs(Number(Value)) / 1.0e6).toFixed(1) + "M"
-      : // Three Zeroes for Thousands
-      Math.abs(Number(Value)) >= 1.0e3
-      ? (Math.abs(Number(Value)) / 1.0e3).toFixed(1) + "K"
-      : Math.abs(Number(Value).toFixed(1));
-  };
   return (
     <Container fluid className="main-container">
       <div className="grid-item">
         {currentItems ? (
           currentItems.map((el, id) => (
             <div className="card-container m-3" key={id}>
-              <NavLink
-                to={`/crypto/${el.uuid}`}
-                className="card-navlink"
-                onClick={() => dispatch(picked(el.uuid))}
-              >
+              <NavLink to={`/crypto/${el.uuid}`} className="card-navlink">
                 <div className="card-head">
                   <div className="card-head-wrapper">
                     <div className="card-head-title">
@@ -49,11 +31,11 @@ const Card = ({ currentItems }) => {
                 <div className="card-body">
                   <p className="card-body-text">
                     <span className="card-body-fontsize">Price:</span>
-                    <span>{getRoundedFigure(el.price)}</span>
+                    <span>{millify(parseFloat(el.price))}</span>
                   </p>
                   <p className="card-body-text">
                     <span className="card-body-fontsize">Market Cap:</span>
-                    <span>{getRoundedFigure(el.marketCap)}</span>
+                    <span>{millify(parseFloat(el.marketCap))}</span>
                   </p>
                   <p className="card-body-text">
                     <span className="card-body-fontsize">Daily Change:</span>
@@ -61,19 +43,11 @@ const Card = ({ currentItems }) => {
                   </p>
                 </div>
               </NavLink>
-              <ul
-                className="card-links-list"
-                onClick={() => dispatch(picked(el.uuid))}
-              >
+              <ul className="card-links-list">
                 <li className="card-links-link">
-                  <span>
-                    <Link to={`/market/${el.uuid}`}>View Market</Link>
-                  </span>
-                </li>
-                <li className="card-links-link">
-                  <span>
-                    <Link to={`/exchange/${el.uuid}`}>View Exchanges</Link>
-                  </span>
+                  <Link to={`/market/${el.uuid}`}>
+                    Market Statistics Overview
+                  </Link>
                 </li>
               </ul>
             </div>

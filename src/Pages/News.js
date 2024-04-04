@@ -3,9 +3,7 @@ import NewsCard from '../Component/NewsCard';
 
 function News() {
   return (
-    <div>
        <NewsCard/>
-    </div>
   )
 }
 

@@ -3,24 +3,26 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Nav from "react-bootstrap/Nav";
 import crypto from "../assests/crypto.png";
-import { Link ,useLocation} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 
 function SidebarMenu() {
   const [shrink, setShrink] = React.useState(false);
-  const location=useLocation();
-  const handleDefault=()=>{
-     if(location.pathname==="/currencies"){
-      return 'link-2'
-     }else if(location.pathname==='/'){
-      return "link-1"
-     }else if(location.pathname==="/refrencecurrencies"){
-      return "link-3"
-     }else{
-      return "link-4"
-     }
-  }
+  const location = useLocation();
+  const handleDefault = () => {
+    if (location.pathname === "/currencies") {
+      return "link-2";
+    } else if (location.pathname === "/") {
+      return "link-1";
+    } else if (location.pathname === "/refrencecurrencies") {
+      return "link-3";
+    } else if (location.pathname === "/news") {
+      return "link-4";
+    }else{
+      return 'link-2';
+    }
+  };
   return (
     <div className={`sidemenu sm-toggle ${shrink ? "sm-state-toggle" : ""}`}>
       <div className="sm-header">

@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -23,7 +23,7 @@ ChartJS.register(
 );
 
 const Graphs = () => {
-  const uuid = useSelector((state) => state.uuid);
+  const uuid = useParams();
   const [exchange, setExchange] = React.useState();
   React.useEffect(() => {
     fetch(
@@ -45,6 +45,7 @@ const Graphs = () => {
         console.error(error);
       });
   }, [uuid]);
+
   const ExchangePrice =
     exchange &&
     exchange.history.map((el) => {

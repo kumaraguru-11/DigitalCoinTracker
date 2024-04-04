@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
-import Loader from "../Component/Loader";
+import Loader from "../feature/Loader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

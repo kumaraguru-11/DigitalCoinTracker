@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import coinReducer from "../features/CoinsSlice";
-import uuidReducer from "../features/UuidSlice";
+import coinReducer from "../Slice/CoinsSlice";
+import marketReducer from '../Slice/StatsSlice';
 
 const store = configureStore({
   reducer: {
     coins: coinReducer,
-    uuid: uuidReducer,
+    stats:marketReducer
   },
 });
 

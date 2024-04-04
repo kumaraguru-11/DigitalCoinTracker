@@ -6,9 +6,9 @@ import Home from "./Pages/Home";
 import Currecies from "./Pages/Currecies";
 import refrencecurrencies from "./Pages/RefrenceCurrencies";
 import News from "./Pages/News";
-import Crypto from "./Component/cryptoData";
-import CryptoMarkets from "./links/CryptoMarkets";
-import ExchangeLink from "./links/ExchangeLink";
+import Crypto from "./Component/cardDetail/cryptoData";
+import Market from './Component/Market-Statistics';
+import PageNotFound from "./Component/feature/PageNotFound";
 import "./App.css";
 
 function App() {
@@ -23,14 +23,13 @@ function App() {
             <Route path="/Currencies" Component={Currecies} />
             <Route path="/refrencecurrencies" Component={refrencecurrencies} />
             <Route path="/news" Component={News} />
-            <Route path={`/crypto/:uuid`} element={<Crypto/>} />
-            <Route path={`/market/:uuid`} Component={CryptoMarkets} />
-            <Route path={`/exchange/:uuid`} Component={ExchangeLink} />
+            <Route path={`/crypto/:uuid`} element={<Crypto />} />
+            <Route path={`/market/:uuid`} element={<Market/>} />
+            <Route path="*" Component={PageNotFound} />
           </Routes>
         </div>
       </div>
     </Router>
-    // </Wrapper>
   );
 }
 

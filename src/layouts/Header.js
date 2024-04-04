@@ -1,11 +1,11 @@
 import React from "react";
-import DropDownSearchBar from "../Component/DropDownSearchBar";
-import DropDown from "../Component/dropDown";
+import DropDownSearchBar from "../Component/feature/SearchBar";
+import DropDown from "../Component/feature/Filter";
 
 function HeaderBar() {
   return (
     <div className="header-section">
-      <DropDownSearchBar/>
+      <DropDownSearchBar />
       <DropDown />
     </div>
   );

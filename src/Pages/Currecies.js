@@ -1,19 +1,19 @@
 import React from "react";
-import GoToTop from "../Component/GoToTop";
-import Pagination from "../Component/Pagination";
+import GoToTop from "../Component/feature/GoToTop";
+import Pagination from "../Component/card/Pagination";
 
 function Currecies() {
   const [show, setShow] = React.useState(false);
   window.addEventListener("scroll", () => {
-    if(window.scrollY > 415){
-      setShow(true)
-    }else{
-      setShow(false)
+    if (window.scrollY > 415) {
+      setShow(true);
+    } else {
+      setShow(false);
     }
   });
   return (
     <div>
-      <Pagination/>
+      <Pagination />
       {show && <GoToTop />}
     </div>
   );

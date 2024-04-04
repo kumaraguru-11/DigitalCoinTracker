@@ -10,7 +10,7 @@ const initialState = {
 };
 export const fetchCoins = createAsyncThunk("coin/fetchcoins", async () => {
   const response = await axios.get(
-    "https://coinranking1.p.rapidapi.com/coins?limit=200",
+    "https://coinranking1.p.rapidapi.com/coins?limit=50",
     {
       headers: {
         "X-RapidAPI-Key": "b0e5fdedf1msh31670962ccd7408p140db3jsne4f802e641e3",

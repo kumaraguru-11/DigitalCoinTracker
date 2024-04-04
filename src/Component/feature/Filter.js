@@ -1,11 +1,13 @@
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useDispatch, useSelector } from "react-redux";
-import { sorted } from "../features/CoinsSlice";
+import { sorted } from "../../Slice/CoinsSlice";
+import { useLocation } from "react-router-dom";
 
 const DropDown = () => {
   const data = useSelector((state) => state.coins.coins.data);
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const handleAscendingOrder = () => {
     let temp = JSON.parse(JSON.stringify(data));
@@ -70,22 +72,24 @@ const DropDown = () => {
 
   return (
     <div>
-      <Dropdown className="d-inline ms-3 dropdown">
-        <Dropdown.Toggle id="dropdown-autoclose-outside">
-          Filter
-        </Dropdown.Toggle>
+      {location.pathname === "/" || location.pathname === "/currencies" ? (
+        <Dropdown className="d-inline ms-1 dropdown">
+          <Dropdown.Toggle id="dropdown-autoclose-outside">
+            Filter
+          </Dropdown.Toggle>
 
-        <Dropdown.Menu>
-          <Dropdown.Item onClick={handleAscendingOrder}>A-Z</Dropdown.Item>
-          <Dropdown.Item onClick={handleDecendingOrder}>Z-A</Dropdown.Item>
-          <Dropdown.Item onClick={handleLowtoHigh}>
-            Price Low to Price High
-          </Dropdown.Item>
-          <Dropdown.Item onClick={handleHightoLow}>
-            Price High to Price Low
-          </Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
+          <Dropdown.Menu>
+            <Dropdown.Item onClick={handleAscendingOrder}>A-Z</Dropdown.Item>
+            <Dropdown.Item onClick={handleDecendingOrder}>Z-A</Dropdown.Item>
+            <Dropdown.Item onClick={handleLowtoHigh}>
+              Price Low to Price High
+            </Dropdown.Item>
+            <Dropdown.Item onClick={handleHightoLow}>
+              Price High to Price Low
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+      ) : null}
     </div>
   );
 };

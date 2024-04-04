@@ -1,60 +1,64 @@
 import React from "react";
-import Loader from "./Loader";
+import Loader from "./feature/Loader";
 import { useLocation } from "react-router-dom";
+import TimeAgo from "timeago-react";
 
 const NewsCard = () => {
   const [news, setNews] = React.useState("");
   const location = useLocation();
- const news2= location.pathname!=="/news" ? news.slice(0,6) : news;
+  const news2 = location.pathname !== "/news" ? news.slice(0, 6) : news;
   React.useEffect(() => {
-    fetch(
-      `https://bing-news-search1.p.rapidapi.com/news/search?q=Cryptocurrencies&safeSearch=Off&textFormat=Raw&freshness=Day&count=20`,
-      {
-        headers: {
-          "X-BingApis-SDK": "true",
-          "X-RapidAPI-Key":
-            "b0e5fdedf1msh31670962ccd7408p140db3jsne4f802e641e3",
-          "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
-        },
-      }
-    )
+    fetch(`https://cryptocurrency-news2.p.rapidapi.com/v1/coindesk`, {
+      headers: {
+        "X-RapidAPI-Key": "ffc6c94612msh07710f41c73452dp1126fdjsn1b944e487f04",
+        "X-RapidAPI-Host": "cryptocurrency-news2.p.rapidapi.com",
+      },
+    })
       .then((resp) => resp.json())
       .then((res) => {
-        // console.log("res-->", res);
-        setNews(res.value);
+        setNews(res.data);
       });
   }, []);
-  // console.log("news",news)
+
   return (
     <div className="news-continer">
       <div className="news-grid">
-        {news2 ?  (
+        {news2 ? (
           news2.map((el) => (
             <div className="news-card" key={el.url}>
-              <a href={el.url} target="_blank" rel="noreferrer" title={el.name}>
+              <a
+                href={el.url}
+                target="_blank"
+                rel="noreferrer"
+                title={el.title}
+              >
                 <div className="news">
                   <div className="news-content">
                     <div className="news-header">
-                      <h2>{el.name}</h2>
+                      <h2>{el.title}</h2>
                       <img
-                        src={el.image && el.image.thumbnail.contentUrl}
+                        src={el.thumbnail && el.thumbnail}
                         alt="imgage not found"
                         width="100"
                         height="100"
                       />
                     </div>
                     <div className="news-published-detail">
-                      <div className="news-published-person-detail">
+                      {/* <div className="news-published-person-detail">
                         <span className="news-card-icon">
                           <i className="bi bi-person"></i>
                         </span>
-                        <span>{el.provider[0].name}</span>
-                      </div>
+                        <span>{el.title}</span>
+                      </div> */}
                       <div className="news-published-time-detail">
                         <span className="news-card-icon">
                           <i className="bi bi-calendar4"></i>
                         </span>
-                        <span>{timeAgo(el.datePublished)}</span>
+                        {/* <span>{el.createdAt}</span> */}
+                        <span>
+                          <TimeAgo datetime={el.createdAt} />
+                        </span>
+                        {/* <span>{timeAgo(el.createdAt)}</span> */}
                       </div>
                     </div>
                     <p>{el.description}</p>
@@ -69,47 +73,6 @@ const NewsCard = () => {
       </div>
     </div>
   );
-
-  function timeAgo(dateString) {
-    const inputDate = new Date(dateString);
-    const currentDate = new Date();
-
-    const timeDifference = currentDate.getTime() - inputDate.getTime();
-    const secondsDifference = timeDifference / 1000;
-    const minutesDifference = secondsDifference / 60;
-    const hoursDifference = minutesDifference / 60;
-    const daysDifference = hoursDifference / 24;
-    const weeksDifference = daysDifference / 7;
-    const monthsDifference = daysDifference / 30;
-
-    if (monthsDifference >= 1) {
-      return `${Math.floor(monthsDifference)} month${
-        Math.floor(monthsDifference) > 1 ? "s" : ""
-      } ago`;
-    } else if (weeksDifference >= 1) {
-      return `${Math.floor(weeksDifference)} week${
-        Math.floor(weeksDifference) > 1 ? "s" : ""
-      } ago`;
-    } else if (daysDifference >= 1) {
-      return `${Math.floor(daysDifference)} day${
-        Math.floor(daysDifference) > 1 ? "s" : ""
-      } ago`;
-    } else if (hoursDifference >= 1) {
-      return `${Math.floor(hoursDifference)} hour${
-        Math.floor(hoursDifference) > 1 ? "s" : ""
-      } ago`;
-    } else if (minutesDifference >= 1) {
-      return `${Math.floor(minutesDifference)} minute${
-        Math.floor(minutesDifference) > 1 ? "s" : ""
-      } ago`;
-    } else if (secondsDifference >= 1) {
-      return `${Math.floor(secondsDifference)} second${
-        Math.floor(secondsDifference) > 1 ? "s" : ""
-      } ago`;
-    } else {
-      return "just now";
-    }
-  }
 };
 
 export default NewsCard;

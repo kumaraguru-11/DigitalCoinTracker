@@ -3,7 +3,7 @@ import ReactPaginate from "react-paginate";
 import { useSelector, useDispatch } from "react-redux";
 import Card from "./Card";
 import { useLocation } from "react-router-dom";
-import { fetchCoins } from "../features/CoinsSlice";
+import { fetchCoins } from "../../Slice/CoinsSlice";
 
 const Pagination = () => {
   const dispatch = useDispatch();
@@ -29,11 +29,11 @@ const Pagination = () => {
       {location.pathname !== "/" && (
         <ReactPaginate
           breakLabel="..."
-          nextLabel="next >"
+          nextLabel=">"
           onPageChange={handlePageClick}
           pageRangeDisplayed={5}
           pageCount={Math.ceil(pageCount)}
-          previousLabel="< previous"
+          previousLabel="<"
           renderOnZeroPageCount={null}
           containerClassName="pagination"
           pageClassName="page-num"

@@ -1,21 +1,10 @@
 import React from "react";
-import Graphs from "./Graphs";
-import NewsCard from "./NewsCard";
+import Graphs from "../Graphs/Graphs";
+import millify from "millify";
+import NewsCard from "../NewsCard";
 
-const CryptoContent = ({coindetail}) => {
-  let key="24hVolume"
-    const getRoundedFigure = (Value) => {
-      // Nine Zeroes for Billions
-      return Math.abs(Number(Value)) >= 1.0e9
-        ? (Math.abs(Number(Value)) / 1.0e9).toFixed(1) + "B"
-        : // Six Zeroes for Millions
-        Math.abs(Number(Value)) >= 1.0e6
-        ? (Math.abs(Number(Value)) / 1.0e6).toFixed(1) + "M"
-        : // Three Zeroes for Thousands
-        Math.abs(Number(Value)) >= 1.0e3
-        ? (Math.abs(Number(Value)) / 1.0e3).toFixed(1) + "K"
-        : Math.abs(Number(Value).toFixed(1));
-    };
+const CryptoContent = ({ coindetail }) => {
+  let key = "24hVolume";
   return (
     <>
       <div className="c-data-header">
@@ -48,7 +37,7 @@ const CryptoContent = ({coindetail}) => {
             <div className="grid-listitem-name">Price to USD</div>
           </div>
           <div className="grid-listitem-price">
-            {` $ ${getRoundedFigure(coindetail.coin.price)}`}
+            {` $ ${millify(parseFloat(coindetail.coin.price))}`}
           </div>
         </div>
         <div className="c-data-grid-list">
@@ -69,7 +58,7 @@ const CryptoContent = ({coindetail}) => {
           </div>
           <div className="grid-listitem-price">
             {" "}
-            {` $ ${getRoundedFigure(coindetail.coin[key])}`}
+            {` $ ${millify(parseFloat(coindetail.coin[key]))}`}
           </div>
         </div>
         <div className="c-data-grid-list">
@@ -81,7 +70,7 @@ const CryptoContent = ({coindetail}) => {
           </div>
           <div className="grid-listitem-price">
             {" "}
-            {` $ ${getRoundedFigure(coindetail.coin.marketCap)}`}
+            {` $ ${millify(parseFloat(coindetail.coin.marketCap))}`}
           </div>
         </div>
         <div className="c-data-grid-list">
@@ -93,7 +82,7 @@ const CryptoContent = ({coindetail}) => {
           </div>
           <div className="grid-listitem-price">
             {" "}
-            {` $ ${getRoundedFigure(coindetail.coin.allTimeHigh.price)}`}
+            {` $ ${millify(parseFloat(coindetail.coin.allTimeHigh.price))}`}
           </div>
         </div>
       </div>
@@ -145,7 +134,7 @@ const CryptoContent = ({coindetail}) => {
           </div>
           <div className="grid-listitem-price">
             {" "}
-            {` $ ${getRoundedFigure(coindetail.coin.supply.total)}`}
+            {` $ ${millify(parseFloat(coindetail.coin.supply.total))}`}
           </div>
         </div>
         <div className="c-data-grid-list">
@@ -157,7 +146,7 @@ const CryptoContent = ({coindetail}) => {
           </div>
           <div className="grid-listitem-price">
             {" "}
-            {` $ ${getRoundedFigure(coindetail.coin.supply.max)}`}
+            {` $ ${millify(parseFloat(coindetail.coin.supply.circulating))}`}
           </div>
         </div>
       </div>
@@ -198,7 +187,7 @@ const CryptoContent = ({coindetail}) => {
           </div>
           <div className="chartheader-line">
             <div>Current Bitcoin Price:</div>
-            <div> {` ${getRoundedFigure(coindetail.coin.price)} $`}</div>
+            <div> {` ${millify(parseFloat(coindetail.coin.price))} $`}</div>
           </div>
         </div>
       </div>
