@@ -27,7 +27,6 @@ export const fetchMarketStats = createAsyncThunk(
 const marketSlice = createSlice({
   name: "market",
   initialState,
-//   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchMarketStats.pending, (state) => {

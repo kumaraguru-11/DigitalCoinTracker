@@ -48,23 +48,6 @@ const Market = () => {
     }
   }, [dispatch, value, symbol]);
 
-  //! Coin Input
-  //mapping the value in Input field
-  const COINS =
-    coins &&
-    coins.coins.map((c) => ({
-      value: c.symbol,
-      label: c.symbol,
-    }));
-
-  //Get and assign value in useState
-  const handleSelectCoin = (selectedOption) => {
-    setValue({ ...value, coin: selectedOption.value });
-  };
-
-  //set default value in input field
-  const defaultValue = { value: symbol, label: symbol };
-
   //! Time Series Input
   //mapping the value in Input field
   const TimeSeries = [
@@ -106,15 +89,6 @@ const Market = () => {
             placeholder="Search..."
             onChange={handleSelectTime}
             defaultValue={TimeSeries[0]}
-          />{" "}
-        </div>
-        <div className="d-flex flex-column flex-grow-1 flex-wrap">
-          <label>Coin:</label>
-          <Select
-            options={COINS}
-            placeholder="Search..."
-            onChange={handleSelectCoin}
-            defaultValue={defaultValue}
           />{" "}
         </div>
         <div className="d-flex flex-column flex-grow-1 flex-wrap">
