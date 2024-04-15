@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/DigitalCoinTracker/static/css/main.1bf693a3.css",
+    "main.js": "/DigitalCoinTracker/static/js/main.99182a25.js",
+    "static/js/787.51fcf24e.chunk.js": "/DigitalCoinTracker/static/js/787.51fcf24e.chunk.js",
+    "static/media/errorImg.png": "/DigitalCoinTracker/static/media/errorImg.6627dc96a127b155ad9e.png",
+    "static/media/bootstrap-icons.woff?": "/DigitalCoinTracker/static/media/bootstrap-icons.4753c5ba57962b4d7bf8.woff",
+    "static/media/bootstrap-icons.woff2?": "/DigitalCoinTracker/static/media/bootstrap-icons.6d63d0501e5ed7b79dab.woff2",
+    "static/media/crypto.png": "/DigitalCoinTracker/static/media/crypto.1548aced3f0605895bac.png",
+    "index.html": "/DigitalCoinTracker/index.html",
+    "main.1bf693a3.css.map": "/DigitalCoinTracker/static/css/main.1bf693a3.css.map",
+    "main.99182a25.js.map": "/DigitalCoinTracker/static/js/main.99182a25.js.map",
+    "787.51fcf24e.chunk.js.map": "/DigitalCoinTracker/static/js/787.51fcf24e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1bf693a3.css",
+    "static/js/main.99182a25.js"
+  ]
+}
